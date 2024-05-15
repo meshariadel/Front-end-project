@@ -2,7 +2,11 @@
   max-width: 1880px;
   margin: 0 auto;
   text-align: center;
+  background-color:hsl(222.2 84% 4.9%);
+
+
 }
+
 
 .logo {
   height: 6em;
