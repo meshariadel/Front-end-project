@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Products from "@/lib/components/component/products"
 
 export function HomePage() {
   return (
@@ -134,8 +135,10 @@ export function HomePage() {
       <main className="bg-gray-950 text-gray-50 pb-12">
         <section className="container px-4 md:px-6 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <Products></Products>
+
             <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-              <Link className="absolute inset-0 z-10" to="####"> 
+              <Link className="absolute inset-0 z-10" to="####">
                 <span className="sr-only">View Product</span>
               </Link>
               <img
