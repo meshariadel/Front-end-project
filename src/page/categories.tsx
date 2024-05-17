@@ -1,5 +1,5 @@
 import Catagoriesdiv from "@/lib/components/component/catagoriesdiv"
-import { Header } from "@/lib/components/component/header"
+import { Header } from "@/lib/components/component/headerrr"
 import React from "react"
 import { Link } from "react-router-dom"
 
