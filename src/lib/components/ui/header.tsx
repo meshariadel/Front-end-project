@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import {
   DropdownMenuTrigger,
@@ -9,8 +9,11 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { MountainIcon, ChevronDownIcon, ShoppingCartIcon, MinusIcon, PlusIcon } from "lucide-react"
+import { GlobalContext } from "@/App"
 
 export default function Header() {
+  const { state, handleAddToCart } = useContext(GlobalContext)
+
   return (
     <>
       <header className="bg-gray-950 text-gray-50 px-4 md:px-6 py-3 flex items-center justify-between">
@@ -52,7 +55,7 @@ export default function Header() {
               <Button className="relative" size="icon" variant="ghost">
                 <ShoppingCartIcon className="h-6 w-6" />
                 <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 text-xs font-medium flex items-center justify-center">
-                  3
+                  {state.cart.length}
                 </Badge>
               </Button>
             </DropdownMenuTrigger>
@@ -118,6 +121,36 @@ export default function Header() {
                     </Button>
                   </div>
                 </div>
+
+                {state.cart?.map((product) => (
+                  <div className="flex items-center gap-4" key={product.id}>
+                    <img
+                      alt={product.name}
+                      className="rounded-md object-cover"
+                      height={80}
+                      src={product.image}
+                      style={{
+                        aspectRatio: "80/80",
+                        objectFit: "cover"
+                      }}
+                      width={80}
+                    />
+                    <div className="flex-1 space-y-1">
+                      <h4 className="font-medium">{product.name}</h4>
+                      <p className="text-sm text-gray-500">Size: M</p>
+                      <p className="font-semibold">{product.price}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button size="icon" variant="ghost">
+                        <MinusIcon className="h-4 w-4" />
+                      </Button>
+                      <span>1</span>
+                      <Button size="icon" variant="ghost">
+                        <PlusIcon className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="flex items-center justify-between border-t pt-4">
                 <p className="text-lg font-semibold">Total</p>

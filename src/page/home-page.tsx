@@ -2,6 +2,8 @@ import { Link } from "react-router-dom"
 import Products from "@/lib/components/component/products"
 import Header from "@/lib/components/ui/header"
 import Footer from "@/lib/components/ui/footer"
+import { useContext } from "react"
+import { Console } from "console"
 
 export function HomePage() {
   return (

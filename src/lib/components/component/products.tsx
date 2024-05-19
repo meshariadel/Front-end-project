@@ -1,10 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 
-import { Product } from "@/types"
+import { GlobalState, Product } from "@/types"
 import { useQuery } from "@tanstack/react-query"
 import api from "@/api"
+import { GlobalContext } from "@/App"
+
 export default function Products() {
+  const { state, handleAddToCart } = useContext(GlobalContext)
+
+  console.log("state : ", state)
+  console.log("state length: ", state.cart.length)
+
   const getProducts = async () => {
     try {
       const res = await api.get("/products")
@@ -29,7 +36,11 @@ export default function Products() {
           key={product.id}
           className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2"
         >
-          <Link className="absolute inset-0 z-10" to="####">
+          <Link
+            className="absolute inset-0 z-10"
+            to="####"
+            onClick={() => handleAddToCart(product)}
+          >
             <span className="sr-only">View Product</span>
           </Link>
           <img
