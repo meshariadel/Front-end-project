@@ -1,5 +1,5 @@
 import { RouterProvider } from "react-router-dom"
-import { router } from "./rout"
+import { router } from "./route"
 import "./App.css"
 import { createContext, useState } from "react"
 import { GlobalState, Product } from "./types"
