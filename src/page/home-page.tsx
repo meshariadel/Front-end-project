@@ -12,7 +12,7 @@ export function HomePage() {
       <Header />
       <main className="bg-gray-950 text-gray-50 pb-12">
         <Hero />
-        <section className="container px-4 md:px-6 py-12">
+        <section className="container px-4 md:px-6 py-12" id="products">
           <Products />
         </section>
       </main>
