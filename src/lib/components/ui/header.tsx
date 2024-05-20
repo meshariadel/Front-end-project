@@ -12,6 +12,7 @@ import {
   DropdownMenuContent,
   DropdownMenu
 } from "./dropdown-menu"
+import { Product } from "@/types"
 
 export default function Header() {
   const { state, handleAddToCart } = useContext(GlobalContext)
@@ -69,61 +70,6 @@ export default function Header() {
                 </Button>
               </div>
               <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <img
-                    alt="Product Image"
-                    className="rounded-md object-cover"
-                    height={80}
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "80/80",
-                      objectFit: "cover"
-                    }}
-                    width={80}
-                  />
-                  <div className="flex-1 space-y-1">
-                    <h4 className="font-medium">Black Hoodie</h4>
-                    <p className="text-sm text-gray-500">Size: M</p>
-                    <p className="font-semibold">$49.99</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button size="icon" variant="ghost">
-                      <MinusIcon className="h-4 w-4" />
-                    </Button>
-                    <span>1</span>
-                    <Button size="icon" variant="ghost">
-                      <PlusIcon className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <img
-                    alt="Product Image"
-                    className="rounded-md object-cover"
-                    height={80}
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "80/80",
-                      objectFit: "cover"
-                    }}
-                    width={80}
-                  />
-                  <div className="flex-1 space-y-1">
-                    <h4 className="font-medium">Leather Jacket</h4>
-                    <p className="text-sm text-gray-500">Size: L</p>
-                    <p className="font-semibold">$149.99</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button size="icon" variant="ghost">
-                      <MinusIcon className="h-4 w-4" />
-                    </Button>
-                    <span>1</span>
-                    <Button size="icon" variant="ghost">
-                      <PlusIcon className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-
                 {state.cart?.map((product) => (
                   <div className="flex items-center gap-4" key={product.id}>
                     <img
@@ -156,7 +102,9 @@ export default function Header() {
               </div>
               <div className="flex items-center justify-between border-t pt-4">
                 <p className="text-lg font-semibold">Total</p>
-                <p className="text-lg font-semibold">$199.98</p>
+                <p className="text-lg font-semibold">
+                  ${state.cart?.reduce((a, product) => a + product.price, 0)}
+                </p>
               </div>
               <div className="flex gap-2">
                 <Button className="flex-1">Checkout</Button>
