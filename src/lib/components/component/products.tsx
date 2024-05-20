@@ -1,20 +1,20 @@
-import React, { useContext } from "react"
+import React, { ChangeEvent, useContext, useState } from "react"
 import { Link } from "react-router-dom"
 
 import { GlobalState, Product } from "@/types"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import api from "@/api"
 import { GlobalContext } from "@/App"
 import { Input } from "@/lib/components/ui/input"
+import { Button } from "../ui/button"
 export default function Products() {
   const { state, handleAddToCart } = useContext(GlobalContext)
-
-  console.log("state : ", state)
-  console.log("state length: ", state.cart.length)
+  const [searchBy, setSearchBy] = useState("")
+  const queryClient = useQueryClient()
 
   const getProducts = async () => {
     try {
-      const res = await api.get("/products")
+      const res = await api.get(`/products?searchBy=${searchBy}`)
       return res.data
     } catch (error) {
       console.error(error)
@@ -28,13 +28,21 @@ export default function Products() {
     queryFn: getProducts
   })
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+
+    setSearchBy(value)
+    queryClient.invalidateQueries({ queryKey: ["products"] })
+  }
+
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center my-10">
         <Input
-          className="bg-gray-800 text-gray-50 my-10 max-w-screen-sm	"
+          className="bg-gray-800 text-gray-50  max-w-screen-sm	"
           placeholder="Search for a product"
           type="search"
+          onChange={handleChange}
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
