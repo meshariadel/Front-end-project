@@ -19,9 +19,10 @@ function App() {
     })
   }
 
+
   return (
     <>
-      <GlobalContext.Provider value={{ state, handleAddToCart }}>
+      <GlobalContext.Provider value={{ state, handleAddToCart, setState }}>
         <RouterProvider router={router} />
       </GlobalContext.Provider>
     </>

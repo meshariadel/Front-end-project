@@ -15,7 +15,14 @@ import {
 import { Product } from "@/types"
 
 export default function Header() {
-  const { state, handleAddToCart } = useContext(GlobalContext)
+  const { state, handleAddToCart, setState } = useContext(GlobalContext)
+  const clearItems = () => {
+    setState(
+      ...state,
+
+      state.cart([])
+    )
+  }
 
   return (
     <>
@@ -65,7 +72,7 @@ export default function Header() {
             <DropdownMenuContent align="end" className="w-80 p-4 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Your Cart</h3>
-                <Button size="sm" variant="ghost">
+                <Button size="sm" variant="ghost" onClick={clearItems}>
                   Clear
                 </Button>
               </div>
