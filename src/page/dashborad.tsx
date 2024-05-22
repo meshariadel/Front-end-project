@@ -40,7 +40,6 @@ export default function Dashborad() {
     img: ""
   })
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     console.log({ name, value })
@@ -257,7 +256,7 @@ export default function Dashborad() {
               <TableCell>{product.features}</TableCell>
               <TableCell>{product.size}</TableCell>
               <TableCell>{product.description}</TableCell>
-              <TableCell>{product.price}$</TableCell>
+              <TableCell>SAR {product.price}</TableCell>
 
               <TableCell className="text-left flex gap-5">
                 <EditDialog product={product} />

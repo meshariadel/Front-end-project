@@ -18,6 +18,7 @@ export type GlobalContextType = {
   state: GlobalState
   handleAddToCart: (product: Product) => void
   handleRemoveFromCart: (id: string) => void
+  handleRemoveAllCart: (id: string) => void
 }
 
 export type Category = {

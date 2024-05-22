@@ -27,9 +27,19 @@ function App() {
     })
   }
 
+  const handleRemoveAllCart = () => {
+    setState({
+      ...state,
+      cart: []
+    })
+    console.log("removedall")
+  }
+
   return (
     <>
-      <GlobalContext.Provider value={{ state, handleAddToCart, handleRemoveFromCart }}>
+      <GlobalContext.Provider
+        value={{ state, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart }}
+      >
         <RouterProvider router={router} />
       </GlobalContext.Provider>
     </>

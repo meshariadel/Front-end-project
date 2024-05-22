@@ -12,24 +12,25 @@ import {
   DropdownMenuContent,
   DropdownMenu
 } from "./dropdown-menu"
-import { Category, Product } from "@/types"
+import { Category, GlobalState, Product } from "@/types"
 import { SelectItem } from "@radix-ui/react-select"
 import { useQuery } from "@tanstack/react-query"
 import api from "@/api"
 
 export default function Header() {
-  const { state, handleAddToCart, handleRemoveFromCart } = useContext(GlobalContext)
+  const { state, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart } =
+    useContext<GlobalState | null>(GlobalContext)
 
   return (
     <>
       <header className="bg-gray-950 text-gray-50 px-4 md:px-6 py-3 flex items-center justify-between">
-        <Link className="flex items-center gap-2" to="#">
+        <Link className="flex items-center gap-2" to="/">
           <MountainIcon className="h-6 w-6" />
 
           {/*<span className="text-lg font-semibold">Mesh'sHARDWARE</span> */}
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link className="text-sm font-medium hover:underline" to="#">
+          <Link className="text-sm font-medium hover:underline" to="/dashboard">
             Dashboard
           </Link>
           <Link className="text-sm font-medium hover:underline" to="#">
@@ -69,7 +70,7 @@ export default function Header() {
             <DropdownMenuContent align="end" className="w-80 p-4 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Your Cart</h3>
-                <Button size="sm" variant="ghost">
+                <Button size="sm" variant="ghost" onClick={() => handleRemoveAllCart()}>
                   Clear
                 </Button>
               </div>
