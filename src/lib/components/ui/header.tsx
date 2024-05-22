@@ -43,13 +43,13 @@ export default function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               <DropdownMenuItem>
-                <Link to="#">Prebulit Gaming PCs</Link>
+                <Link to="/pcs">Prebulit Gaming PCs</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link to="#">Accessories</Link>
+                <Link to="/accessories">Accessories</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link to="#">Monitors</Link>
+                <Link to="/monitors">Monitors</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

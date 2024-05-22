@@ -38,17 +38,17 @@ export default function Footer() {
           </div>
           <div className="space-y-2">
             <h4 className="font-semibold text-lg">Shop</h4>
-            <Link className="hover:underline" to="#">
+            <Link className="hover:underline" to="/pcs">
               Prebuilt Gaming PCs
             </Link>
             <br />
 
-            <Link className="hover:underline" to="#">
+            <Link className="hover:underline" to="/accessories">
               Accessories
             </Link>
             <br />
 
-            <Link className="hover:underline" to="#">
+            <Link className="hover:underline" to="/monitors">
               Monitors
             </Link>
           </div>
