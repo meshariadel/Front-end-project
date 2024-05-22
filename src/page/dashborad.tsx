@@ -36,9 +36,10 @@ export default function Dashborad() {
     description: "",
     stock: 0,
     price: 0,
-    color: "",
+    features: "",
     img: ""
   })
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -212,9 +213,9 @@ export default function Dashborad() {
           />
           <Input
             className="mt-2"
-            name="color"
+            name="features"
             type="text"
-            placeholder="color"
+            placeholder="features"
             onChange={handleChange}
           />
           <Button className="mt-2" type="submit">
@@ -234,7 +235,7 @@ export default function Dashborad() {
             <TableHead>Category Name</TableHead>
 
             <TableHead>Stuck</TableHead>
-            <TableHead>Color</TableHead>
+            <TableHead>Features</TableHead>
             <TableHead>Size</TableHead>
             <TableHead>Description</TableHead>
             <TableHead>Price</TableHead>
@@ -253,7 +254,7 @@ export default function Dashborad() {
               <TableCell>{product.categoryId}</TableCell>
 
               <TableCell>{product.stock}</TableCell>
-              <TableCell>{product.color}</TableCell>
+              <TableCell>{product.features}</TableCell>
               <TableCell>{product.size}</TableCell>
               <TableCell>{product.description}</TableCell>
               <TableCell>{product.price}$</TableCell>

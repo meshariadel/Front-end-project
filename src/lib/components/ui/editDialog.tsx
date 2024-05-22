@@ -90,11 +90,11 @@ export default function EditDialog({ product }: { product: Product }) {
                 onChange={handleChange}
               />
 
-              <Label htmlFor="color">Color</Label>
+              <Label htmlFor="features">Features</Label>
               <Input
-                id="color"
-                name="color"
-                defaultValue={updateProductState.color}
+                id="features"
+                name="features"
+                defaultValue={updateProductState.features}
                 onChange={handleChange}
               />
 

@@ -12,24 +12,21 @@ import {
   DropdownMenuContent,
   DropdownMenu
 } from "./dropdown-menu"
-import { Product } from "@/types"
+import { Category, Product } from "@/types"
+import { SelectItem } from "@radix-ui/react-select"
+import { useQuery } from "@tanstack/react-query"
+import api from "@/api"
 
 export default function Header() {
-  const { state, handleAddToCart, setState } = useContext(GlobalContext)
-  const clearItems = () => {
-    setState(
-      ...state,
-
-      state.cart([])
-    )
-  }
+  const { state, handleAddToCart, handleRemoveFromCart } = useContext(GlobalContext)
 
   return (
     <>
       <header className="bg-gray-950 text-gray-50 px-4 md:px-6 py-3 flex items-center justify-between">
         <Link className="flex items-center gap-2" to="#">
           <MountainIcon className="h-6 w-6" />
-          <span className="text-lg font-semibold">Noir Apparel</span>
+
+          {/*<span className="text-lg font-semibold">Mesh'sHARDWARE</span> */}
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           <Link className="text-sm font-medium hover:underline" to="#">
@@ -72,7 +69,7 @@ export default function Header() {
             <DropdownMenuContent align="end" className="w-80 p-4 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Your Cart</h3>
-                <Button size="sm" variant="ghost" onClick={clearItems}>
+                <Button size="sm" variant="ghost">
                   Clear
                 </Button>
               </div>
@@ -83,7 +80,7 @@ export default function Header() {
                       alt={product.name}
                       className="rounded-md object-cover"
                       height={80}
-                      src={product.image}
+                      src={product.img}
                       style={{
                         aspectRatio: "80/80",
                         objectFit: "cover"
@@ -92,16 +89,17 @@ export default function Header() {
                     />
                     <div className="flex-1 space-y-1">
                       <h4 className="font-medium">{product.name}</h4>
-                      <p className="text-sm text-gray-500">Size: M</p>
-                      <p className="font-semibold">{product.price}</p>
+                      <p className="text-sm text-gray-500"></p>
+                      <p className="font-semibold">SAR {product.price}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Button size="icon" variant="ghost">
-                        <MinusIcon className="h-4 w-4" />
-                      </Button>
-                      <span>1</span>
-                      <Button size="icon" variant="ghost">
-                        <PlusIcon className="h-4 w-4" />
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="hover:hover:bg-red-300"
+                        onClick={() => handleRemoveFromCart(product.id)}
+                      >
+                        X
                       </Button>
                     </div>
                   </div>
@@ -110,7 +108,7 @@ export default function Header() {
               <div className="flex items-center justify-between border-t pt-4">
                 <p className="text-lg font-semibold">Total</p>
                 <p className="text-lg font-semibold">
-                  ${state.cart?.reduce((a, product) => a + product.price, 0)}
+                  SAR {state.cart?.reduce((a, product) => a + product.price, 0)}
                 </p>
               </div>
               <div className="flex gap-2">

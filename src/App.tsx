@@ -5,7 +5,6 @@ import { createContext, useState } from "react"
 import { GlobalState, Product } from "./types"
 
 export const GlobalContext = createContext<GlobalState | null>(null)
-//export const GlobalContext = createContext()
 
 function App() {
   const [state, setState] = useState<GlobalState>({
@@ -19,10 +18,18 @@ function App() {
     })
   }
 
+  const handleRemoveFromCart = (id: string) => {
+    const filteredCart = state.cart.filter((item) => item.id !== id)
+
+    setState({
+      ...state,
+      cart: filteredCart
+    })
+  }
 
   return (
     <>
-      <GlobalContext.Provider value={{ state, handleAddToCart, setState }}>
+      <GlobalContext.Provider value={{ state, handleAddToCart, handleRemoveFromCart }}>
         <RouterProvider router={router} />
       </GlobalContext.Provider>
     </>

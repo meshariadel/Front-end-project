@@ -7,11 +7,17 @@ export type Product = {
   description: string
   stock: number
   size: string
-  color: string
+  features: string
 }
 
 export type GlobalState = {
   cart: Product[]
+}
+
+export type GlobalContextType = {
+  state: GlobalState
+  handleAddToCart: (product: Product) => void
+  handleRemoveFromCart: (id: string) => void
 }
 
 export type Category = {

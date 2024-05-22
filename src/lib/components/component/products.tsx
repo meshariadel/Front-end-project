@@ -47,7 +47,6 @@ export default function Products() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data?.map((product) => (
-          // eslint-disable-next-line react/jsx-key
           <div
             key={product.id}
             className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2"
@@ -72,8 +71,8 @@ export default function Products() {
             />
             <div className="bg-gray-900 p-4">
               <h3 className="font-bold text-xl">{product.name}</h3>
-              <p className="text-sm text-gray-400">{product.description}</p>
-              <h4 className="font-semibold text-lg md:text-xl">{product.price}</h4>
+              <p className="text-sm text-gray-400">{product.features}</p>
+              <h4 className="font-semibold text-lg md:text-xl">SAR {product.price}</h4>
             </div>
           </div>
         ))}

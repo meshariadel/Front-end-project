@@ -6,21 +6,21 @@ Tech Stack: React, TypeScript. Styling: Tailwind, MUI, or CSS/SASS
 
 **Pages to Create:**
 
-1. Home page (list all the products)
+1. # Home page (list all the products)
 2. Product page (contain the details of a product)
-3. Dashboard page
+3. # Dashboard page
 
 **Functionalities for a Visitor:**
 
-- Get list of products
+- # Get list of products
 - Filter products by categories or price
-- Search products by name
-- Add products to a cart
-- Remove products from a cart
+- # Search products by name
+- # Add products to a cart
+- # Remove products from a cart
 
 **Functionalities for an Admin:**
 
-- Add a new product, update info of a product, remove a product
+- # Add a new product, update info of a product, remove a product
 
 ### Level 2: Additional Requirements
 
