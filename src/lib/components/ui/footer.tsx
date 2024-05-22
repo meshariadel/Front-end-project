@@ -10,14 +10,14 @@ export default function Footer() {
           <div className="space-y-2">
             <h4 className="font-semibold text-lg">Contact</h4>
             <p>
-              123 Main St.
+              Al Mursalat, 3215.
               <br />
-              Anytown, USA 12345
+              Riyadh, KSA 12461
             </p>
             <p>
-              Phone: (123) 456-7890
+              Phone: (+966) 570-517388
               <br />
-              Email: info@noirapparel.com
+              Email: meshari@meshardware.com
             </p>
           </div>
           <div className="space-y-2">
@@ -25,9 +25,13 @@ export default function Footer() {
             <Link className="hover:underline" to="#">
               Our Story
             </Link>
+            <br />
+
             <Link className="hover:underline" to="#">
               Our Team
             </Link>
+            <br />
+
             <Link className="hover:underline" to="#">
               Careers
             </Link>
@@ -35,21 +39,22 @@ export default function Footer() {
           <div className="space-y-2">
             <h4 className="font-semibold text-lg">Shop</h4>
             <Link className="hover:underline" to="#">
-              Tops
+              Prebuilt Gaming PCs
             </Link>
-            <Link className="hover:underline" to="#">
-              Bottoms
-            </Link>
-            <Link className="hover:underline" to="#">
-              Dresses
-            </Link>
+            <br />
+
             <Link className="hover:underline" to="#">
               Accessories
+            </Link>
+            <br />
+
+            <Link className="hover:underline" to="#">
+              Monitors
             </Link>
           </div>
           <div className="space-y-2">
             <h4 className="font-semibold text-lg">Follow Us</h4>
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-4">
               <Link className="hover:text-gray-400" to="#">
                 <FacebookIcon className="h-6 w-6" />
               </Link>
