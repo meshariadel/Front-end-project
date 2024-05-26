@@ -22,6 +22,8 @@ export type GlobalContextType = {
   handleStoreUser: (user: DecodedUser) => void
   handleRemoveCart: () => void
   handleRemoveUser: () => void
+  handleRemoveFromCart: () => void
+  handleRemoveAllCart: () => void
 }
 
 export type Category = {

@@ -101,6 +101,23 @@ function App() {
     }
   }, [])
 
+  const handleRemoveFromCart = (id: string) => {
+    const filteredCart = state.cart.filter((item) => item.id !== id)
+
+    setState({
+      ...state,
+      cart: filteredCart
+    })
+  }
+
+  const handleRemoveAllCart = () => {
+    setState({
+      ...state,
+      cart: []
+    })
+    console.log("removedall")
+  }
+
   const handleAddToCart = (product: Product) => {
     // const isDuplicated = state.cart.find((cartItem) => cartItem.id === product.id)
     // if (isDuplicated) return
@@ -153,7 +170,9 @@ function App() {
             handleDeleteFromCart,
             handleStoreUser,
             handleRemoveCart,
-            handleRemoveUser
+            handleRemoveUser,
+            handleRemoveFromCart,
+            handleRemoveAllCart
           }}
         >
           <RouterProvider router={router} />

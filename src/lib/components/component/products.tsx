@@ -51,11 +51,7 @@ export default function Products() {
             key={product.id}
             className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2"
           >
-            <Link
-              className="absolute inset-0 z-10"
-              to={`/products/${product.id}`}
-              onClick={() => handleAddToCart(product)}
-            >
+            <Link className="absolute inset-0 z-10" to={`/products/${product.id}`}>
               <span className="sr-only">View Product</span>
             </Link>
             <img
