@@ -133,9 +133,8 @@ export default function Header() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button className="flex-1">Checkout</Button>
-                <Button className="flex-1" variant="outline">
-                  View Cart
+                <Button className="flex-1">
+                  <Link to="/checkout">Checkout </Link>
                 </Button>
               </div>
             </DropdownMenuContent>

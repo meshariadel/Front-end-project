@@ -9,6 +9,7 @@ import Accessories from "./page/accessories"
 import Monitors from "./page/monitors"
 import ProductDetail from "./page/productDetail"
 import { PrivateRoute } from "./lib/components/component/privateRoute"
+import Checkout from "./page/checkOut"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -46,5 +47,9 @@ export const router = createBrowserRouter([
   {
     path: "/products/:productId",
     element: <ProductDetail />
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />
   }
 ])
