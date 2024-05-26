@@ -53,7 +53,7 @@ export default function Products() {
           >
             <Link
               className="absolute inset-0 z-10"
-              to="####"
+              to={`/products/${product.id}`}
               onClick={() => handleAddToCart(product)}
             >
               <span className="sr-only">View Product</span>

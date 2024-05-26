@@ -7,6 +7,7 @@ import Dashborad from "./page/dashborad"
 import Pcs from "./page/pcs"
 import Accessories from "./page/accessories"
 import Monitors from "./page/monitors"
+import ProductDetail from "./page/productDetail"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -35,5 +36,9 @@ export const router = createBrowserRouter([
   {
     path: "/monitors",
     element: <Monitors />
+  },
+  {
+    path: "/products/:productId",
+    element: <ProductDetail />
   }
 ])
