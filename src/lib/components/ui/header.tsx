@@ -12,14 +12,32 @@ import {
   DropdownMenuContent,
   DropdownMenu
 } from "./dropdown-menu"
-import { Category, GlobalState, Product } from "@/types"
+import { Category, GlobalState, Product, ROLE } from "@/types"
 import { SelectItem } from "@radix-ui/react-select"
 import { useQuery } from "@tanstack/react-query"
 import api from "@/api"
 
 export default function Header() {
-  const { state, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart } =
-    useContext<GlobalState | null>(GlobalContext)
+  /*const { state, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart } =
+    useContext<GlobalState | null>(GlobalContext)*/
+
+  const context = useContext(GlobalContext)
+  if (!context) throw Error("Context is missing")
+  const { state, handleRemoveUser, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart } =
+    context
+
+  console.log(state)
+
+  const handleLogout = () => {
+    if (typeof window !== undefined) {
+      window.location.reload()
+    }
+
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+
+    handleRemoveUser()
+  }
 
   return (
     <>
@@ -30,9 +48,13 @@ export default function Header() {
           {/*<span className="text-lg font-semibold">Mesh'sHARDWARE</span> */}
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link className="text-sm font-medium hover:underline" to="/dashboard">
-            Dashboard
-          </Link>
+          {state.user?.role === ROLE.Admin && (
+            <Link className="text-sm font-medium hover:underline" to="/dashboard">
+              Dashboard
+            </Link>
+          )}
+          {!state.user && <Link to="/login">Login</Link>}
+
           <Link className="text-sm font-medium hover:underline" to="#">
             About
           </Link>
@@ -53,6 +75,7 @@ export default function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          {state.user && <Button onClick={handleLogout}>Logout</Button>}
         </nav>
         <div className="flex items-center gap-4">
           <DropdownMenu>

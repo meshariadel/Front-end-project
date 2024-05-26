@@ -12,16 +12,41 @@ export type Product = {
 
 export type GlobalState = {
   cart: Product[]
+  user: DecodedUser | null
 }
 
 export type GlobalContextType = {
   state: GlobalState
   handleAddToCart: (product: Product) => void
-  handleRemoveFromCart: (id: string) => void
-  handleRemoveAllCart: (id: string) => void
+  handleDeleteFromCart: (id: string) => void
+  handleStoreUser: (user: DecodedUser) => void
+  handleRemoveCart: () => void
+  handleRemoveUser: () => void
 }
 
 export type Category = {
   id: string
   categoryName: string
+}
+
+export type User = {
+  id: string
+  fullName: string
+  email: string
+  role: string
+}
+
+export const ROLE = {
+  Admin: "Admin",
+  Customer: "user"
+} as const
+
+export type DecodedUser = {
+  aud: string
+  emailaddress: string
+  exp: number
+  iss: string
+  name: string
+  nameidentifier: string
+  role: keyof typeof ROLE
 }

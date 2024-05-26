@@ -8,6 +8,7 @@ import Pcs from "./page/pcs"
 import Accessories from "./page/accessories"
 import Monitors from "./page/monitors"
 import ProductDetail from "./page/productDetail"
+import { PrivateRoute } from "./lib/components/component/privateRoute"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,12 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashborad />
+
+    element: (
+      <PrivateRoute>
+        <Dashborad />
+      </PrivateRoute>
+    )
   },
   {
     path: "/pcs",
