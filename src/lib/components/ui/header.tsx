@@ -23,8 +23,7 @@ export default function Header() {
 
   const context = useContext(GlobalContext)
   if (!context) throw Error("Context is missing")
-  const { state, handleRemoveUser, handleAddToCart, handleRemoveFromCart, handleRemoveAllCart } =
-    context
+  const { state, handleRemoveUser, handleDeleteFromCart, handleRemoveAllCart } = context
 
   console.log(state)
 
@@ -114,7 +113,12 @@ export default function Header() {
                       <p className="font-semibold">SAR {product.price}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Button size="icon" variant="ghost" className="hover:hover:bg-red-300">
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="hover:hover:bg-red-300"
+                        onClick={() => handleDeleteFromCart(product.id)}
+                      >
                         X
                       </Button>
                     </div>

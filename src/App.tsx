@@ -108,6 +108,7 @@ function App() {
       ...state,
       cart: filteredCart
     })
+    console.log("filterd ", filteredCart)
   }
 
   const handleRemoveAllCart = () => {
