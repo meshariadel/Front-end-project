@@ -30,7 +30,7 @@ export default function Aboutus() {
             alt="Prebuilt Gaming PC"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
             height="500"
-            src="/placeholder.svg"
+            src="https://png.pngtree.com/background/20230528/original/pngtree-red-lit-gaming-room-with-two-screens-cranked-up-and-a-picture-image_2780746.jpg"
             width="500"
           />
         </div>
@@ -93,7 +93,7 @@ export default function Aboutus() {
             alt="Prebuilt Gaming PC Setup"
             className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
             height="500"
-            src="/placeholder.svg"
+            src="https://futurefive.co.nz/uploads/story/2022/08/08/GettyImages-1166235766.webp"
             width="500"
           />
           <div className="space-y-4">
