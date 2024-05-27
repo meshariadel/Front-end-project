@@ -17,13 +17,13 @@ export default function Component() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-950 text-gray-50">
       <div className="container px-4 md:px-6 grid lg:grid-cols-[1fr_500px] gap-8 items-center">
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Unlock Your Digital Potential
+            Unleash Your Gaming Potential
           </h1>
-          <p className="max-w-[600px] text-gray-300 md:text-xl">
-            Empower your team with our cutting-edge tools and streamlined workflows. Elevate your
-            digital presence and drive innovation.
+          <p className="max-w-[790px] text-gray-300 md:text-xl 	">
+            with Our High-Performance Prebuilt PCs – Power, Speed, and Reliability at Your
+            Fingertips.
           </p>
           <div>
             <Link

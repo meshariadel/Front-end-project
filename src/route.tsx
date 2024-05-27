@@ -10,6 +10,7 @@ import Monitors from "./page/monitors"
 import ProductDetail from "./page/productDetail"
 import { PrivateRoute } from "./lib/components/component/privateRoute"
 import Checkout from "./page/checkOut"
+import Adminusers from "./page/adminUsers"
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -51,5 +52,14 @@ export const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout />
+  },
+  {
+    path: "/adminusers",
+
+    element: (
+      <PrivateRoute>
+        <Adminusers />
+      </PrivateRoute>
+    )
   }
 ])

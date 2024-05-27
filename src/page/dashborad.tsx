@@ -1,4 +1,5 @@
 import api from "@/api"
+import AdminHeader from "@/lib/components/ui/adminHeader"
 
 import { Button } from "@/lib/components/ui/button"
 import EditDialog from "@/lib/components/ui/editDialog"
@@ -145,7 +146,7 @@ export default function Dashborad() {
   return (
     <>
       <Header />
-
+      <AdminHeader />
       <div className="flex justify-center">
         <form onSubmit={handelSubmit}>
           <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Add New Product</h3>

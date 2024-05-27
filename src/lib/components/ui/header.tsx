@@ -114,12 +114,7 @@ export default function Header() {
                       <p className="font-semibold">SAR {product.price}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Button
-                        size="icon"
-                        variant="ghost"
-                        className="hover:hover:bg-red-300"
-                        onClick={() => handleRemoveFromCart(product.id)}
-                      >
+                      <Button size="icon" variant="ghost" className="hover:hover:bg-red-300">
                         X
                       </Button>
                     </div>
@@ -134,7 +129,7 @@ export default function Header() {
               </div>
               <div className="flex gap-2">
                 <Button className="flex-1">
-                  <Link to="/checkout">Checkout </Link>
+                  <Link to="/checkout">Checkout</Link>
                 </Button>
               </div>
             </DropdownMenuContent>

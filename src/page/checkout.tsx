@@ -26,7 +26,8 @@ export default function Checkout() {
 
     handleRemoveUser()
   }
-
+  const totalPrice = state.cart?.reduce((a, product) => a + product.price, 0)
+  console.log(totalPrice)
   return (
     <>
       <main className="bg-gray-950 text-gray-50 pb-12">
@@ -136,7 +137,7 @@ export default function Checkout() {
                 </div>
                 <div className="flex items-center justify-between border-t pt-4">
                   <p className="text-lg font-semibold">Total</p>
-                  <p className="text-lg font-semibold">$199.98</p>
+                  <p className="text-lg font-semibold"> SAR {totalPrice}</p>
                 </div>
                 <Button className="w-full" size="lg">
                   Place Order
@@ -148,7 +149,7 @@ export default function Checkout() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <p>Subtotal</p>
-                  <p>$199.98</p>
+                  <p> SAR {totalPrice}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <p>Shipping</p>
@@ -161,7 +162,7 @@ export default function Checkout() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <p className="text-lg font-semibold">Total</p>
-                  <p className="text-lg font-semibold">$199.98</p>
+                  <p className="text-lg font-semibold">SAR {totalPrice}</p>
                 </div>
               </div>
             </div>
