@@ -55,7 +55,7 @@ export default function Header() {
           )}
           {!state.user && <Link to="/login">Login</Link>}
 
-          <Link className="text-sm font-medium hover:underline" to="#">
+          <Link className="text-sm font-medium hover:underline" to="/aboutus">
             About
           </Link>
           <DropdownMenu>
