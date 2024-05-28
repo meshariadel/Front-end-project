@@ -9,8 +9,8 @@ import Accessories from "./page/accessories"
 import Monitors from "./page/monitors"
 import ProductDetail from "./page/productDetail"
 import { PrivateRoute } from "./lib/components/component/privateRoute"
-import Checkout from "./page/checkOut"
-import Adminusers from "./page/adminUsers"
+import Checkout from "./page/checkout"
+import Adminusers from "./page/adminusers"
 import Aboutus from "./page/aboutus"
 export const router = createBrowserRouter([
   {
